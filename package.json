@@ -1,6 +1,6 @@
 {
   "name": "deay-monorepo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -10,9 +10,9 @@
     "build:ui": "bun run --cwd packages/ui build",
     "build:mcp": "bun run --cwd packages/mcp-server build",
     "build:all": "bun run build:ui && bun run build:mcp",
-    "publish:all": "bun run build:all && bun publish --filter './packages/*'",
     "publish:ui": "cd packages/ui && bun run build && bun publish --access public",
-    "publish:mcp": "cd packages/mcp-server && bun run build && bun publish --access public"
+    "publish:mcp": "cd packages/mcp-server && bun run build && bun publish --access public",
+    "publish:all": "bun run build:all && bun publish --filter './packages/*'"
   },
   "devDependencies": {
     "@angular/compiler": "19.2.17",
@@ -23,7 +23,6 @@
     "@types/node": "22.19.3",
     "ng-packagr": "19.2.2",
     "typescript": "5.6.3",
-    "tslib": "2.8.1",
-    "zone.js": "0.15.1"
+    "tslib": "2.8.1"
   }
 }

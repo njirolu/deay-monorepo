@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * @dai/mcp - MCP Server for @dai/ui Component Library
+ * @deay/mcp - MCP Server for @deay/ui Component Library
  *
  * This server provides AI assistants with comprehensive documentation
- * about @dai/ui components following Figma design specifications.
+ * about @deay/ui components following Figma design specifications.
  *
  * Run locally: bun run dev:mcp
- * Or after npm publish: npx @dai/mcp
+ * Or after npm publish: npx @deay/mcp
  */
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
@@ -20,7 +20,7 @@ import { getComponentInfo, listComponents, COMPONENT_REGISTRY } from './registry
 // Create server instance
 const server = new Server(
   {
-    name: '@dai/mcp',
+    name: '@deay/mcp',
     version: '0.0.1',
   },
   {
@@ -36,7 +36,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
     tools: [
       {
         name: 'get_component_info',
-        description: 'Get information about @dai/ui components including props, usage examples, and best practices',
+        description: 'Get information about @deay/ui components including props, usage examples, and best practices',
         inputSchema: {
           type: 'object',
           properties: {
@@ -51,7 +51,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
       },
       {
         name: 'list_components',
-        description: 'List all available components in @dai/ui',
+        description: 'List all available components in @deay/ui',
         inputSchema: {
           type: 'object',
           properties: {},
@@ -119,7 +119,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
     case 'list_components': {
       const components = listComponents();
-      let response = '# Available Components in @dai/ui\n\n';
+      let response = '# Available Components in @deay/ui\n\n';
 
       components.forEach((name) => {
         const info = COMPONENT_REGISTRY[name];
@@ -147,7 +147,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error('@dai/mcp server running on stdio');
+  console.error('@deay/mcp server running on stdio');
 }
 
 main().catch((error) => {

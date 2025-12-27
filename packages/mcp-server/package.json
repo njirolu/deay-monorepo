@@ -1,6 +1,6 @@
 {
   "name": "@deay/mcp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "description": "MCP server for @deay/ui component library with Figma design specifications",
   "author": "Your Name",
@@ -13,11 +13,11 @@
     "README.md"
   ],
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.6.0",
-    "zod": "^3.23.0"
+    "@modelcontextprotocol/sdk": "0.6.1",
+    "zod": "3.25.76"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && bun scripts/prepare-package.ts",
     "start": "node dist/index.js",
     "dev": "tsc --watch"
   }
