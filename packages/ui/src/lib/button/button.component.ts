@@ -118,6 +118,11 @@ import type { CvButtonVariant, CvButtonSize } from './button.variants';
         animation: dai-spin 0.6s linear infinite;
       }
 
+      /* Full Width Variant */
+      .dai-button-fullwidth {
+        width: 100%;
+      }
+
       @keyframes dai-spin {
         to {
           transform: rotate(360deg);
@@ -126,12 +131,13 @@ import type { CvButtonVariant, CvButtonSize } from './button.variants';
     `,
   ],
 })
-export class DaiButtonComponent {
+export class DeayButtonComponent {
   // Signal Inputs (Angular 19+)
   readonly variant = input<CvButtonVariant>('primary');
   readonly size = input<CvButtonSize>('md');
   readonly disabled = input<boolean>(false);
   readonly loading = input<boolean>(false);
+  readonly fullWidth = input<boolean>(false);
 
   // Computed properties for dynamic classes
   protected computedClasses = computed(() => {
@@ -143,6 +149,10 @@ export class DaiButtonComponent {
 
     if (this.loading()) {
       classes.push('dai-button-loading');
+    }
+
+    if (this.fullWidth()) {
+      classes.push('dai-button-fullwidth');
     }
 
     return classes.join(' ');

@@ -38,6 +38,7 @@ A versatile button component with loading states and multiple sizes.
 - `size`: `'sm' | 'md' | 'lg'` (default: `'md'`) - Button size
 - `disabled`: `boolean` (default: `false`) - Disable the button
 - `loading`: `boolean` (default: `false`) - Show loading spinner
+- `fullWidth`: `boolean` (default: `false`) - Make button span full container width
 
 **Usage:**
 
@@ -60,6 +61,11 @@ A versatile button component with loading states and multiple sizes.
 <!-- Disabled state -->
 <dai-button size="md" [disabled]="true">
   Button
+</dai-button>
+
+<!-- Full width button -->
+<dai-button size="md" [fullWidth]="true">
+  Full Width Button
 </dai-button>
 ```
 
@@ -155,6 +161,7 @@ A feature-rich input component with validation states and Angular Forms integrat
 - Use `size="sm"` for dense UI areas and tables
 - Use `size="md"` for standard buttons (default)
 - Use `size="lg"` for prominent call-to-action buttons
+- Use `fullWidth="true"` for buttons that should fill their container width
 - Loading state automatically disables the button
 - Always provide accessible button text
 

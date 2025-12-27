@@ -24,6 +24,7 @@ export interface ComponentInfo {
   name: string;
   selector: string;
   description: string;
+  import?: string;
   props: ComponentProp[];
   examples: ComponentExample[];
   bestPractices: string[];
@@ -34,6 +35,7 @@ export const COMPONENT_REGISTRY: Record<string, ComponentInfo> = {
     name: 'Button',
     selector: 'dai-button',
     description: 'Primary button component following Figma design specifications. Features three sizes (sm, md, lg), loading state with spinner, and full accessibility support. Built with Angular 19+ signal inputs.',
+    import: "import { DeayButtonComponent } from '@deay/ui';",
     props: [
       {
         name: 'variant',
@@ -62,6 +64,13 @@ export const COMPONENT_REGISTRY: Record<string, ComponentInfo> = {
         required: false,
         default: 'false',
         description: 'Shows spinner and disables button with Primary/500 color',
+      },
+      {
+        name: 'fullWidth',
+        type: 'boolean',
+        required: false,
+        default: 'false',
+        description: 'Makes the button span the full width of its container',
       },
     ],
     examples: [
@@ -93,11 +102,19 @@ export const COMPONENT_REGISTRY: Record<string, ComponentInfo> = {
   Button
 </dai-button>`,
       },
+      {
+        title: 'Full Width Button',
+        description: 'Button that spans the full width of its container',
+        code: `<dai-button size="md" [fullWidth]="true">
+  Full Width Button
+</dai-button>`,
+      },
     ],
     bestPractices: [
       'Use size="sm" for dense UI areas and tables (height: 24px, font: 12px)',
       'Use size="md" for standard buttons (height: 32px, font: 14px)',
       'Use size="lg" for prominent CTAs (height: 40px, font: 16px)',
+      'Use fullWidth="true" for buttons that should fill their container width',
       'Loading state automatically disables the button and shows spinner',
       'Disabled state uses Primary/400 color (#9098FA)',
       'Hover state uses Primary/600 color (#5164F7)',
@@ -111,6 +128,7 @@ export const COMPONENT_REGISTRY: Record<string, ComponentInfo> = {
     name: 'Input',
     selector: 'dai-input',
     description: 'Input component following Figma design specifications. Features three sizes (sm, md, lg), error states, disabled states, and Angular Forms integration via ControlValueAccessor. Uses Poppins font family.',
+    import: "import { DeayInputComponent } from '@deay/ui';",
     props: [
       {
         name: 'label',

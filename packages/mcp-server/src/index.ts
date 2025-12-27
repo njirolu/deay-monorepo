@@ -86,6 +86,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       response += `**Selector:** \`${info.selector}\`\n\n`;
       response += `**Description:** ${info.description}\n\n`;
 
+      if (info.import) {
+        response += `## Import\n\n`;
+        response += `\`\`\`typescript\n${info.import}\n\`\`\`\n\n`;
+      }
+
       response += `## Props\n\n`;
       info.props.forEach((prop) => {
         response += `### ${prop.name}\n`;

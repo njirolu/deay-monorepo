@@ -149,12 +149,12 @@ export type CvInputSize = 'sm' | 'md' | 'lg';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => DaiInputComponent),
+      useExisting: forwardRef(() => DeayInputComponent),
       multi: true,
     },
   ],
 })
-export class DaiInputComponent implements ControlValueAccessor {
+export class DeayInputComponent implements ControlValueAccessor {
   // Signal Inputs
   readonly label = input<string>('');
   readonly placeholder = input<string>('Text');

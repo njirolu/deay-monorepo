@@ -4,8 +4,7 @@
     "outDir": "../../dist/out-tsc/packages/ui",
     "declaration": true,
     "declarationMap": true,
-    "inlineSources": true,
-    "types": []
+    "inlineSources": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/test.ts", "**/*.spec.ts"]
