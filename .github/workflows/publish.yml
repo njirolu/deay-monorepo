@@ -43,7 +43,10 @@ jobs:
           bun publish --access public
 
       - name: Copy package.json for @deay/mcp
-        run: cp packages/mcp-server/package.json packages/mcp-server/dist/
+        run: |
+          cp packages/mcp-server/package.json packages/mcp-server/dist/
+          # Update files field to point to current directory
+          sed -i 's/"files": \["dist\/", "README.md"\]/"files": [".\/", "README.md"]/g' packages/mcp-server/dist/package.json
 
       - name: Copy .npmrc to mcp dist
         run: cp .npmrc packages/mcp-server/dist/
