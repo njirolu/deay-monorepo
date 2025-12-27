@@ -32,11 +32,13 @@ jobs:
         run: cp packages/ui/package.json packages/ui/dist/
 
       - name: Publish @deay/ui
-        run: |
-          cd packages/ui/dist
-          bun publish --access public --token "${{ secrets.NPM_TOKEN }}"
+        working-directory: packages/ui/dist
+        run: bun publish --access public
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @deay/mcp
-        run: |
-          cd packages/mcp-server/dist
-          bun publish --access public --token "${{ secrets.NPM_TOKEN }}"
+        working-directory: packages/mcp-server/dist
+        run: bun publish --access public
+        env:
+          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
