@@ -12,6 +12,7 @@
     "tslib": "2.8.1"
   },
   "scripts": {
-    "build": "ng-packagr -p ng-package.json"
+    "build": "ng-packagr -p ng-package.json && bun run postbuild",
+    "postbuild": "bun scripts/postbuild.ts"
   }
 }
