@@ -28,22 +28,15 @@ jobs:
       - name: Build all packages
         run: bun run build:all
 
-      - name: Setup npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-
       - name: Copy package.json for @deay/ui
         run: cp packages/ui/package.json packages/ui/dist/
 
       - name: Publish @deay/ui
         run: |
-          cp .npmrc packages/ui/dist/
           cd packages/ui/dist
-          bun publish --access public
-          rm .npmrc
+          bun publish --access public --token ${{ secrets.NPM_TOKEN }}
 
       - name: Publish @deay/mcp
         run: |
-          cp .npmrc packages/mcp-server/dist/
           cd packages/mcp-server/dist
-          bun publish --access public
-          rm .npmrc
+          bun publish --access public --token ${{ secrets.NPM_TOKEN }}
