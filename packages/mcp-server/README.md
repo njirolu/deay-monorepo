@@ -18,9 +18,9 @@ This MCP server allows AI coding tools (Claude Desktop, Cursor, Windsurf) to:
 {
   "mcpServers": {
     "@deay/mcp": {
-      "command": "bun",
-      "args": ["run", "dev:mcp"],
-      "cwd": "/path/to/dai-monorepo"
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/path/to/deay-monorepo/packages/mcp-server"
     }
   }
 }
@@ -42,9 +42,9 @@ This MCP server allows AI coding tools (Claude Desktop, Cursor, Windsurf) to:
 ## Usage
 
 Once configured, ask your AI assistant:
-- "How do I use dai-button component?"
+- "How do I use the button component?"
 - "Create a form with @deay/ui components"
-- "What are the available sizes for dai-input?"
+- "What are the available sizes for the input component?"
 
 ## How It Works
 
@@ -69,21 +69,21 @@ Get detailed info about a specific component including:
 
 ```bash
 # Build
-bun run build
+npm run build
 
 # Watch mode
-bun run dev
+npm run dev
 
-# Test
-bun test-mcp.js
+# Start server
+npm run start
 ```
 
 ## Contributing
 
 When adding new components to @deay/ui:
 1. Update `src/registry.ts` with component documentation
-2. Rebuild: `bun run build`
-3. Test: `bun test-mcp.js`
+2. Rebuild: `npm run build`
+3. Test: `node test-mcp.js` (if available)
 4. Republish (if needed): `npm publish`
 
 ## License
