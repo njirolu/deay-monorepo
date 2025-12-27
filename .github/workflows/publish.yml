@@ -34,18 +34,16 @@ jobs:
       - name: Copy package.json for @deay/ui
         run: cp packages/ui/package.json packages/ui/dist/
 
-      - name: Copy .npmrc to dist
-        run: cp .npmrc packages/ui/dist/
-
       - name: Publish @deay/ui
         run: |
+          cp .npmrc packages/ui/dist/
           cd packages/ui/dist
           bun publish --access public
-
-      - name: Copy .npmrc to mcp dist
-        run: cp .npmrc packages/mcp-server/dist/
+          rm .npmrc
 
       - name: Publish @deay/mcp
         run: |
+          cp .npmrc packages/mcp-server/dist/
           cd packages/mcp-server/dist
           bun publish --access public
+          rm .npmrc
