@@ -1,0 +1,24 @@
+{
+  "name": "@deay/mcp",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "MCP server for @deay/ui component library with Figma design specifications",
+  "author": "Your Name",
+  "license": "MIT",
+  "bin": {
+    "deay-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "zod": "^3.23.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  }
+}

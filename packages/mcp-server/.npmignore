@@ -1,0 +1,15 @@
+# Dependencies
+node_modules
+*.log
+
+# Development
+src
+*.tsbuildinfo
+tsconfig.json
+
+# Tests
+*.test.ts
+test/
+
+# Documentation (already in root)
+docs/
