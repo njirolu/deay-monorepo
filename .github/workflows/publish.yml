@@ -34,19 +34,21 @@ jobs:
       - name: Copy package.json for @deay/ui
         run: cp packages/ui/package.json packages/ui/dist/
 
+      - name: Copy .npmrc to dist
+        run: cp .npmrc packages/ui/dist/
+
       - name: Publish @deay/ui
         run: |
           cd packages/ui/dist
           bun publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Copy package.json for @deay/mcp
         run: cp packages/mcp-server/package.json packages/mcp-server/dist/
+
+      - name: Copy .npmrc to mcp dist
+        run: cp .npmrc packages/mcp-server/dist/
 
       - name: Publish @deay/mcp
         run: |
           cd packages/mcp-server/dist
           bun publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
