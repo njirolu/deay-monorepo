@@ -29,7 +29,7 @@ jobs:
         run: bun run build:all
 
       - name: Copy package.json for @deay/ui
-        run: cp packages/ui/package.json packages/ui/dist/
+        run: cp packages/ui/package.json packages/ui/dist/package.json
 
       - name: Publish @deay/ui
         run: |
