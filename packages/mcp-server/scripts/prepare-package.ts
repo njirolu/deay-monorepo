@@ -29,7 +29,7 @@ const packageJson = JSON.parse(fs.readFileSync(targetPackageJson, 'utf-8'))
 delete packageJson.scripts
 
 // Update files to include all files in dist
-packageJson.files = ['.', 'README.md']
+packageJson.files = ['**/*', 'README.md']
 
 // Update bin path to be relative to dist folder
 packageJson.bin = { 'deay-mcp': './index.js' }
