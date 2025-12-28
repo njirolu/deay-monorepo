@@ -4,8 +4,7 @@ import {
   type ControlValueAccessor,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-
-export type CvInputSize = 'sm' | 'md' | 'lg';
+import { CvInputSize, CvInputType } from './input.types';
 
 @Component({
   selector: 'dai-input',
@@ -158,7 +157,7 @@ export class DeayInputComponent implements ControlValueAccessor {
   // Signal Inputs
   readonly label = input<string>('');
   readonly placeholder = input<string>('Text');
-  readonly type = input<'text' | 'password' | 'email'>('text');
+  readonly type = input<CvInputType>('text');
   readonly disabled = input<boolean>(false);
   readonly errorMessage = input<string>('');
   readonly size = input<CvInputSize>('md');

@@ -1,5 +1,5 @@
-import { Component, input, computed } from '@angular/core';
-import type { CvButtonVariant, CvButtonSize } from './button.variants';
+import { Component, input, computed, HostBinding } from '@angular/core';
+import type { CvButtonVariant, CvButtonSize } from './button.types';
 
 @Component({
   selector: 'dai-button',
@@ -21,6 +21,11 @@ import type { CvButtonVariant, CvButtonSize } from './button.variants';
     `
       :host {
         display: inline-block;
+      }
+
+      :host.dai-button-host-fullwidth {
+        display: block;
+        width: 100%;
       }
 
       button {
@@ -160,4 +165,12 @@ export class DeayButtonComponent {
 
   // Computed disabled state (disabled or loading)
   protected isDisabled = computed(() => this.disabled() || this.loading());
+
+  // Host bindings for fullWidth styling
+  @HostBinding('class')
+  protected get hostClasses(): Record<string, boolean> {
+    return {
+      'dai-button-host-fullwidth': this.fullWidth(),
+    };
+  }
 }

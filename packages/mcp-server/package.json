@@ -1,6 +1,6 @@
 {
   "name": "@deay/mcp",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "description": "MCP server for @deay/ui component library with Figma design specifications",
   "author": "Your Name",

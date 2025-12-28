@@ -1,6 +1,6 @@
 {
   "name": "@deay/ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "peerDependencies": {
     "@angular/core": "19.2.17",
